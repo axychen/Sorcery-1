@@ -46,16 +46,16 @@ public:
 	std::vector<Card> getHand();
 	std::vector<Minion> getBoard();
 	std::vector<Ritual> getRitual();
-	bool removeRitual();
-	bool setRitual(Ritual other);
 	std::vector<Minion> getGy();
-
+	bool setRitual(Ritual other);
 	int getHp();
-	void loseHp(int hpLost);
 	int getMagic();
+
+	bool removeRitual();
+	void removeHand(int pos);	
+	void loseHp(int hpLost);
 	void gainMagic(int gain);
 	bool spendMagic(int spend, bool testing);
-	void removeHand(int pos);
 	void endTurn(Player& opponent);
 	void startTurn(Player& opponent);
 	void draw();
@@ -63,13 +63,13 @@ public:
 	bool play(Player& opponent, Minion newM);
 	void attack(int attacker, Player& player);
 	bool minionToGraveyard(Player& opponent, int boardPos, int activePlayer);
-	bool resurrect(Player& opponent);
 	bool minionToHand(Player& opponent, int boardPos, int activePlayer);
 	bool minionDamaged(Player& opponent, int pos, int damage, int activePlayer);
+	bool resurrect(Player& opponent);
 	void buffMinion(int boardPos, int atkBuff, int defBuff);
 	bool enchantMinion(int pos, Enchantment e);
 	void trigger(Player& opponent, Condition condition, int enterOrExit, int activePlayer);
-
+	
 	void displayBoard();
 	void displayBoardRest(int playerNum);
 	void inspectMinion(int pos);
